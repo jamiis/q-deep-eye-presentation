@@ -75,24 +75,40 @@
                         <img width="340" src="img/bias_variance_Radial_basis_function_fit_spread=5.png">
                     </span>
                     <span>
-                    <img width="340" src="img/bias_variance_Radial_basis_function_fit_spread=1.png">
-                    <img width="340" src="img/bias_variance_Radial_basis_function_fit_spread=0.1.png">
+                        <img width="340" src="img/bias_variance_Radial_basis_function_fit_spread=1.png">
+                        <img width="340" src="img/bias_variance_Radial_basis_function_fit_spread=0.1.png">
                     </span>
                     </p>
                     <br>
 				</section>
 
 				<section>
+					<h3>Network Training</h3>
+                    <small>
+                        A light weight master node signals multiple slaves to each train a different network architecture
+                        Each slave is a g2.xlarge GPU-focused AWS machine.
+                    </small>
+				</section>
+
+				<section>
+					<h3>Running the Ensemble</h3>
+                    <small>
+                        On each iteration the master node dispatches the 4 frames to each slave node, or each trained network.
+                        All networks return their opinion for the best command back to the master.
+                        The master will then averages among these options and start the process over.
+                    </small>
+				</section>
+
+                <!--
+				<section>
 					<h3>Experience Sharing</h3>
 				</section>
+                -->
 
 				<section>
 					<h3>Exploration</h3>
                     <p>
-                        When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-                        <br>
-                        <br>
-                        \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
+                        TODO: still missing latex for exploration parameters
                     </p>
 				</section>
 
