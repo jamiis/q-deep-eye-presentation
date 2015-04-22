@@ -55,20 +55,102 @@
 
 				<section>
 					<h3>Q-Networks Review</h3>
+                    <ul>
+                    <li>Q-Learning + Convolutional Networks to represent state space</li>
+                    <li>Replay learning</li>
+                    </ul>
+				</section>
+
+				<section>
+					<h3>Q-Networks Review</h3>
+				</section>
+
+				<section>
+					<h3>Q-Networks Review - Performance</h3>
+                    <a href="http://googleresearch.blogspot.com/2015/02/from-pixels-to-actions-human-level.html" target="_blank">
+                    <img src="http://3.bp.blogspot.com/-pB_6VHHypI0/VOzFzr9n1jI/AAAAAAAAAeM/DULg2BucYhg/s1600/Screen%2BShot%2B2015-02-24%2Bat%2B9.41.01%2BAM.png" height="600">
+                    </a>
+				</section>
+
+				<section>
+					<h3>Multi-GPU Optimization</h3>
+                    <img src="img/networked-gpus.png">
+                    <p>RDMA can bypass the CPU for internode communication</p>
+                    <p>... but we don't get RDMA in AWS land :(</p>
+				</section>
+
+				<section>
+					<h3>Multi-GPU Optimization</h3>
+                    <p>
+                    <ol>
+                    <li>Model Parallel</li>
+                    <li>Data Parallel</li>
+                    <li>Ensemble Methods</li>
+                    <ol>
+                    </p>
+				</section>
+
+				<section>
+                    <h3>Model Parallel</h3>
+                    <a href="https://timdettmers.wordpress.com/2014/11/09/model-parallelism-deep-learning/#more-85" target="_blank">
+                        <img src="img/model-parallel.png">
+                    </a>
+				</section>
+
+				<section>
+                    <h3>Data Parallel</h3>
+                    <a href="https://timdettmers.wordpress.com/2014/10/09/deep-learning-data-parallelism/" target="_blank">
+                        <img src="img/data-parallel.png">
+                    </a>
+				</section>
+
+				<section>
+                    <h3>Model + Data Parallel for ConvNets</h3>
+                    <q><a href="One weird trick for parallelizing convolutional neural networks" target="_blank">
+                        One weird trick for parallelizing convolutional neural networks, Alex Krizhevsky
+                    </a><q>
+                    <img src="img/conv-parallelism-1.png">
+				</section>
+
+				<section>
+                    <h3>Model + Data Parallel for ConvNets</h3>
+                    <img src="img/conv-parallelism-2.png" height="600">
+				</section>
+
+				<section>
+                    <h3>Challenges: New Language & Framework</h3>
+                    <h4>LuaJit, Torch (nn, cutorch, cunn), AWS, Cuda</h4>
+                    <a href="http://cs.nyu.edu/~koray/files/2011_torch7_nipsw.pdf" target="_blank">
+                        <img src="img/torch-screenshot.png" height="600">
+                    </a>
+				</section>
+
+				<section>
+                    <h3>Challenges: Bleeding Edge</h3>
+                    <a href="https://www.facebook.com/yann.lecun/posts/10152257954142143">
+                        <img src="img/lecun-multigpu.png" height="500">
+                    </a>
+				</section>
+
+				<section>
+                    <h3>Challenges: Bleeding Edge</h3>
+                    <p>
+                    <a href="https://github.com/torch/cutorch/issues/42">Multi-GPU support in cutorch is a few months old!</a>
+                    Very little documentation. We've been communicating with a facebook Torch developer to navigate the tricky waters.
+                    DeepMind's DQN code uses a deprecated version of cunn which indicates it is probably from 2013.
+                    </p>
 				</section>
 
 				<section>
 					<h3>Q-Network Ensemble Averaging</h3>
                     <p>
-                        <q>
-                            "Ensemble averaging creates a group of networks, each with low bias and high variance, then combines them to a new network with (hopefully) low bias and low variance."
-                        </q>
+                        <q>"Ensemble averaging creates a group of networks, each with low bias and high variance, then combines them to a new network with (hopefully) low bias and low variance."</q>
                     </p>
-                    -Ensemble Averaging Wiki
+                    -<a href="http://www.wikiwand.com/en/Ensemble_averaging" target="_blank">Ensemble Averaging Wiki</a>
 				</section>
 
 				<section>
-					<h3>Bias-Variance Tradeoff</h3>
+                    <h3><a href="http://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff">Bias-Variance Tradeoff</a></h3>
                     <p>
                     <span>
                         <img width="340" src="img/bias_variance_Test_function_and_noisy_data.png">
@@ -108,12 +190,11 @@
 				<section>
 					<h3>Exploration</h3>
                     <p>
-                        TODO: still missing latex for exploration parameters
+                        <q>
+                            "The definition of insanity is doing the same thing over and over and expecting different results."
+                        </q>
                     </p>
-				</section>
-
-				<section>
-					<h3>Going Deeper with Google Inception Networks</h3>
+                    -Albert Einstein (<a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=7&cad=rja&uact=8&ved=0CD0QFjAG&url=http%3A%2F%2Fwww.gizmodo.com.au%2F2014%2F03%2F9-albert-einstein-quotes-that-are-totally-fake%2F&ei=F_03VZz6H-mCsQSqtYDgDg&usg=AFQjCNGQ7DXlNDy4UCEfwJG4K5pyGLxDxA&sig2=5dOCJC1tUPcv_NVLQmbIBA" target="_blank">but not really</a> :)
 				</section>
 
 			</div>
