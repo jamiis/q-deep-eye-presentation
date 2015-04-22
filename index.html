@@ -55,14 +55,8 @@
 
 				<section>
 					<h3>Q-Networks Review</h3>
-                    <ul>
-                    <li>Q-Learning + Convolutional Networks to represent state space</li>
-                    <li>Replay learning</li>
-                    </ul>
-				</section>
-
-				<section>
-					<h3>Q-Networks Review</h3>
+                    <img src="img/q-learning.png" width="500">
+                    <img src="img/dqn-convnet.png" height="400">
 				</section>
 
 				<section>
@@ -140,6 +134,7 @@
                     <br>
 				</section>
 
+                <!--
 				<section>
 					<h3>Network Training</h3>
                     <small>
@@ -156,6 +151,7 @@
                         The master will then averages among these options and start the process over.
                     </small>
 				</section>
+                -->
 
                 <!--
 				<section>
@@ -174,10 +170,43 @@
 				</section>
 
 				<section>
-                    <h3>Challenges: New Language & Framework</h3>
-                    <h4>LuaJit, Torch (nn, cutorch, cunn), AWS, Cuda</h4>
+					<h3>Exploration</h3>
+                    \[
+\chi_t = \phi_t + \rho_t
+ \phi_t = \sum_{t' =1}^{k}\lambda_1^{t'}e^{-\eta_{t-t'}}\\
+ \rho_t = \sum_{t' =1}^{k}\lambda_2^{t'}e^{-r_{t-t'}} 
+                    \]
+				</section>
+
+				<section>
+					<h3>Exploration</h3>
+                    \[
+\phi_{t-1} = \sum_{t' =1}^{k} \lambda_1^{t'}e^{-\eta_{t-t'-1}} \\
+\lambda_1 \phi_{t-1}= \sum_{t' =1}^{k} \lambda_1^{t'+1}e^{-\eta_{t-(t'+1)}} + \\
+=\sum_{t' =2}^{k+1} \lambda_1^{t'}e^{-\eta_{t-t'}} \\
+                    \]
+				</section>
+
+				<section>
+					<h3>Exploration</h3>
+                    \[
+=\phi_t + \lambda_1^{k+1} e^{-\eta_{t-k-1}}- \lambda_1 e^{-\eta_{t-1}}\\
+\Leftrightarrow \phi_t =\lambda_1\phi_{t-1}+ \lambda_1 e^{-\eta_{t-1}} - \lambda_1^{k+1} e^{-\eta_{t-k-1}}\\
+\chi_t = \phi_t\rho_t\label{multi}
+                    \]
+				</section>
+
+				<section>
+					<h3>Exploration</h3>
+                    <img src="img/Markov_Decision_Process_example.png" height="580">
+				</section>
+
+
+				<section>
+                    <h3>Challenges: Ramp Up Time</h3>
+                    <h4>LuaJit, Torch (nn, cutorch, cunn), AWS, Cuda, ALE</h4>
                     <a href="http://cs.nyu.edu/~koray/files/2011_torch7_nipsw.pdf" target="_blank">
-                        <img src="img/torch-screenshot.png" height="600">
+                        <img src="img/torch-screenshot.png" height="500">
                     </a>
 				</section>
 
@@ -191,11 +220,28 @@
 				<section>
                     <h3>Challenges: Bleeding Edge</h3>
                     <p>
-                    <a href="https://github.com/torch/cutorch/issues/42">Multi-GPU support in cutorch is a few months old!</a>
-                    Very little documentation. We've been communicating with a facebook Torch developer to navigate the tricky waters.
-                    DeepMind's DQN code uses a deprecated version of cunn which indicates it is probably from 2013.
+                    <ul>
+                        <li><a href="https://github.com/torch/cutorch/issues/42">Multi-GPU support in cutorch is a few old!</a></li>
+                        <li>Little (to no) documentation for DQN, cunn, cutorch</li>
+                        <li>DQN code base is large and undocumented</li>
+                        <li>We've been communicating with a Facebook Torch developer to navigate the tricky CUDA waters</li>
+                        <li>DeepMind's DQN code uses a deprecated version of cunn which indicates it is probably from 2013</li>
+                    </ul>
                     </p>
 				</section>
+
+				<section>
+                    <h3>Challenges: Shifting Research Desires</h3>
+                    <p>
+                    <ul>
+                    <li>Replicating DeepMind results, then code was released</li>
+                    <li>Ensemble averaging using DQN</li>
+                    <li>Model/data parallel multi-GPU optimization</li>
+                    <li>Novel exploration parameter</li>
+                    </ul>
+                    </p>
+				</section>
+
 
 
 			</div>
